@@ -1,0 +1,160 @@
+/* PAGE TRANSITION */
+.container{
+    animation: transitionIn 1.5s;
+}
+
+@keyframes transitionIn{
+    from{
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+.navbar-font{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    background-color: white;
+}
+
+.logo{
+  font-size: 25px;
+}
+
+.logo-ponto{
+  color: #57A1A6;
+}
+
+.navbar-login_sair{
+  color: gray;
+}
+.navbar-login_sair:hover{
+  color: black;
+}
+
+.navbar-btn:hover{
+    background-color: rgba(151, 206, 209, 0.8);
+}
+
+.showcase{
+    padding-top: 5%;
+}
+
+.btn-showcase{
+    background-color: #97CED1;
+    width: 180px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.btn-showcase:hover, .btn-showcase:focus, .btn-showcase:active, .card-cadastro:hover, .card-cadastro:focus, .card-cadastro:active{
+    box-shadow: 0 0 20px rgba(151, 206, 209, 0.3);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.section-color{
+    background-color: #F3F8F8;
+}
+
+.section-btn{
+    background-color: #97CED1;
+    border-radius: 20px;
+    width: 100px;
+}
+
+.section-btn:hover{
+    background-color: #57A1A6;
+}
+
+.section-btn2{
+    background-color: rgba(151, 206, 209, 0.3);
+}
+
+.section-btn2:hover{
+    background-color: rgba(151, 206, 209, 0.8);
+}
+
+textarea{
+    resize: none;
+}
+
+ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
+
+.card-cadastro{
+    background-color: #97CED1;
+    height: 350px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+/* FORMS */
+.cadastro-body{
+    background-color: rgba(151, 206, 209, 0.5);
+    height: max-content;
+}
+
+.card-form{
+    width: 700px;
+    height: 850px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.card-form2{
+    width: 700px;
+    height: 870px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.card-form3{
+    width: 700px;
+    height: 430px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 90px;
+    margin-bottom: 130px;
+}
+
+.card-title{
+    color: #97CED1;
+}
+
+.login-link{
+    color: #97CED1;
+}
+
+.login-link:hover{
+    color: #57A1A6;
+}
+
+/* DASHBOARD */
+.card-formDBPsi{
+  width: 700px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* HEALTH PAGES */
+.subtopic-content{
+    text-align: justify;
+}
+
+.breadcrumb a{
+    text-decoration: none;
+    color: #97CED1;
+}
