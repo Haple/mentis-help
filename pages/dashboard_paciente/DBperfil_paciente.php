@@ -2,6 +2,25 @@
     session_start();
     include_once('../../includes/db_inc.php');
     $currentUser = $_SESSION['idpaciente'];
+    if(isset($_POST['update_paciente'])){
+        $novonome = $_POST['update_nome'];
+        $novoemail = $_POST['update_email'];
+        $novocpf = $_POST['update_cpf'];
+        $novocrp = $_POST['update_crp'];
+        $novonascimento = $_POST['update_nascimento'];
+        $novodesc = $_POST['update_descricao'];
+
+        $sql="UPDATE paciente SET nomePaciente = '$novonome', emailPaciente = '$novoemail',
+        CPFPaciente = '$novocpf', nascimentoPaciente = '$novonascimento', 
+        descricaoPaciente = '$novodesc' WHERE IDPaciente = $currentUser";
+        $result=mysqli_query($conn, $sql);
+        if($result){
+                echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
+        }
+        else{
+            die(mysqli_error($conn));
+        }
+    }
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -102,43 +121,6 @@
                                     class="form-control" id="cpf_mascara" placeholder="insira seu cpf">
                                 <label for="cpf_mascara">CPF:</label>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-md mb-3">
-                            <div class="form-floating">
-                                <select name="update_sexo" value="<?php echo $row['sexoPaciente']; ?>"
-                                    class="form-select" id="floatingSelectGrid"
-                                    aria-label="Floating label select example">
-                                    <option selected>Selecione</option>
-                                    <option value="Feminino">Feminino</option>
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Outros">Outros</option>
-                                </select>
-                                <label for="floatingSelectGrid">Sexo</label>
-                            </div>
-                        </div>
-                        <div class="col-md mb-3">
-                            <div class="form-floating">
-                                <select name="estado_civil" class="form-select" id="floatingSelectGrid"
-                                    aria-label="Floating label select example">
-                                    <option selected>Selecione</option>
-                                    <option value="Solteiro(a)">Solteiro(a)</option>
-                                    <option value="Casado(a)">Casado(a)</option>
-                                    <option value="Divorciado(a)">Divorciado(a)</option>
-                                    <option value="Viúvo(a)">Viúvo(a)</option>
-                                    <option value="Outros">Outros</option>
-                                </select>
-                                <label for="floatingSelectGrid">Estado Civil<span class="text-danger">*</span></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="form-floating">
-                            <input type="date" name="nascimento" value="<?php echo $row['nascimentoPaciente']; ?>"
-                                class="form-control" id="floatingSelectGrid" placeholder="insira sua data" required>
-                            <label for="floatingSelectGrid">Data de Nascimento:<span
-                                    class="text-danger">*</span></label>
                         </div>
                     </div>
                     <?php

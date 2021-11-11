@@ -14,6 +14,12 @@
                         CPFPsicologo = '$novocpf', CRP = '$novocrp',
                         nascimentoPsicologo = '$novonascimento', descricaoPsicologo = '$novodesc' WHERE IDPsicologo = $currentUser";
                         $result=mysqli_query($conn, $sql);
+                        if($result){
+                                echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
+                        }
+                        else{
+                            die(mysqli_error($conn));
+                        }
                     }
 ?>
 <!doctype html>
