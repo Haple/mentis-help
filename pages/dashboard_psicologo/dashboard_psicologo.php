@@ -29,7 +29,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light navbar-font pt-3 pb-3">
                 <div class="container-fluid">
-                    <a class="navbar-brand dash-title" href="index.php">
+                    <a class="navbar-brand dash-title" href="../../index.php">
                         <div class="logo me-3">Mentis<span class="logo-ponto">.</span></div>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -39,16 +39,16 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active me-2" aria-current="page" href="#"><i class="bi bi-house"></i>
+                            <li class="nav-item me-2">
+                                <a class="nav-link active" aria-current="page" href="dashboard_psicologo.php"><i class="bi bi-house"></i>
                                     Área do
                                     Psicólogo</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="#quem"><i class="bi bi-calendar-event"></i> Cronograma</a>
+                                <a class="nav-link" href="DBcronograma.php"><i class="bi bi-calendar-event"></i> Cronograma</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="#quem"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link" href="DBchats_psicologo.php"><i class="bi bi-chat-left"></i> Chats</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link" href="DBperfil_psicologo.php"><i class="bi bi-person"></i> Pefil</a>

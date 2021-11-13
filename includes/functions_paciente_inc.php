@@ -74,7 +74,7 @@ function loginUser($conn, $email, $senha1){
         session_start();
         $_SESSION["idpaciente"] = $uidExists["IDPaciente"];
         $_SESSION["emailpaciente"] = $uidExists["emailPaciente"];
-        header("location: ../pages/dashboard_paciente.php");
+        header("location: ../pages/dashboard_paciente/dashboard_paciente.php");
         exit();
     }
 }

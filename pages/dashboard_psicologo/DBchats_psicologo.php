@@ -40,15 +40,18 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item me-2">
-                                <a class="nav-link active" aria-current="page" href="dashboard_paciente.php"><i class="bi bi-house"></i>
+                                <a class="nav-link" href="dashboard_psicologo.php"><i class="bi bi-house"></i>
                                     Área do
-                                    Paciente</a>
+                                    Psicólogo</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link" href="DBcronograma.php"><i class="bi bi-calendar-event"></i> Cronograma</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBperfil_paciente.php"><i class="bi bi-person"></i> Pefil</a>
+                                <a class="nav-link active" aria-current="page"  href="DBchats_psicologo.php"><i class="bi bi-chat-left"></i> Chats</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a class="nav-link" href="DBperfil_psicologo.php"><i class="bi bi-person"></i> Pefil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="../../includes/logout_inc.php"><i

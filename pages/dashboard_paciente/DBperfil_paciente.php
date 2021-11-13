@@ -60,12 +60,12 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="dashboardPsi2.0.php"><i class="bi bi-house"></i>
+                                <a class="nav-link me-2" href="dashboard_paciente.php"><i class="bi bi-house"></i>
                                     Área do
                                     Paciente</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="#quem"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i> Chats</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link active me-2" aria-current="page" href="DBperfil_paciente.php"><i
@@ -114,15 +114,7 @@
                             <label for="floatingInputGrid">Endereço de Email:</label>
                         </div>
                     </div>
-                    <div class="row g-2">
-                        <div class="col-md mb-3">
-                            <div class="form-floating">
-                                <input type="text" name="update_cpf" value="<?php echo $row['CPFPaciente']; ?>"
-                                    class="form-control" id="cpf_mascara" placeholder="insira seu cpf">
-                                <label for="cpf_mascara">CPF:</label>
-                            </div>
-                        </div>
-                    </div>
+
                     <?php
                     if(isset($_POST['update_psicologo'])){
                         $novonome = $_POST['update_nome'];

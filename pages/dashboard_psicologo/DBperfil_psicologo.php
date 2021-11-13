@@ -5,19 +5,16 @@
                     if(isset($_POST['update_psicologo'])){
                         $novonome = $_POST['update_nome'];
                         $novoemail = $_POST['update_email'];
-                        $novocpf = $_POST['update_cpf'];
-                        $novocrp = $_POST['update_crp'];
-                        $novonascimento = $_POST['update_nascimento'];
                         $novodesc = $_POST['update_descricao'];
                 
                         $sql="UPDATE psicologo SET nomePsicologo = '$novonome', emailPsicologo = '$novoemail',
-                        CPFPsicologo = '$novocpf', CRP = '$novocrp',
-                        nascimentoPsicologo = '$novonascimento', descricaoPsicologo = '$novodesc' WHERE IDPsicologo = $currentUser";
+                        descricaoPsicologo = '$novodesc' WHERE IDPsicologo = $currentUser";
                         $result=mysqli_query($conn, $sql);
                         if($result){
                                 echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
                         }
                         else{
+                            echo "<div class='alert alert-success' role='alert'>Não foi possível atualizar!</div>";
                             die(mysqli_error($conn));
                         }
                     }
@@ -59,16 +56,16 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link me-2" href="dashboard_psicologo.php"><i class="bi bi-house"></i>
+                            <li class="nav-item  me-2">
+                                <a class="nav-link" href="dashboard_psicologo.php"><i class="bi bi-house"></i>
                                     Área do
                                     Psicólogo</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="#quem"><i class="bi bi-calendar-event"></i> Cronograma</a>
+                                <a class="nav-link" href="DBcronograma.php"><i class="bi bi-calendar-event"></i> Cronograma</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="#quem"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link" href="DBchats_psicologo.php"><i class="bi bi-chat-left"></i> Chats</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link active me-2" aria-current="page" href="DBperfil_psicologo.php"><i
@@ -116,30 +113,6 @@
                             <label for="floatingInputGrid">Endereço de Email:</label>
                         </div>
                     </div>
-                    <div class="row g-2">
-                        <div class="col-md mb-3">
-                            <div class="form-floating">
-                                <input type="text" name="update_cpf" value="<?php echo $row['CPFPsicologo']; ?>"
-                                    class="form-control" id="cpf_mascara" placeholder="insira seu cpf">
-                                <label for="cpf_mascara">CPF:</label>
-                            </div>
-                        </div>
-                        <div class="col-md mb-3">
-                            <div class="form-floating">
-                                <input type="text" name="update_crp" value="<?php echo $row['CRP']; ?>"
-                                    class="form-control" id="crp_mascara" placeholder="insira seu crp">
-                                <label for="crp_mascara">CRP:</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="form-floating">
-                            <input type="date" name="update_nascimento"
-                                value="<?php echo $row['nascimentoPsicologo']; ?>" class="form-control"
-                                id="floatingSelectGrid" placeholder="insira sua data">
-                            <label for="floatingSelectGrid">Data de Nascimento:</label>
-                        </div>
-                    </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input type="text" class="form-control" name="update_descricao"
@@ -148,25 +121,6 @@
                             <label for="floatingTextarea2">Descrição:</label>
                         </div>
                     </div>
-                    <?php
-                        if(isset($_GET["error"])){
-                            if($_GET["error"] == "senhasdiferentes"){
-                                echo "<div class='p-3'>";
-                                echo "<p class='text-danger fw-bold bg-success'><i class='bi bi-x-circle'></i> Senhas diferentes.</p>";
-                                echo "</div>";
-                            }
-                            else if ($_GET["error"] == "emailutilizado"){
-                                echo "<div class='p-3'>";
-                                echo "<p class='text-danger fw-bold'><i class='bi bi-x-circle'></i> Email, CPF ou CRP já cadastrados.</p>";
-                                echo "</div>";
-                            }
-                            else if ($_GET["error"] == "none"){
-                                echo "<div class='p-3'>";
-                                echo "<p class='text-success fw-bold'><i class='bi bi-patch-check'></i> Cadastro concluído!</p>";
-                                echo "</div>";
-                            }
-                        }
-                    ?>
                     <button type="submit" name="update_psicologo" value="Update"
                         class="btn section-btn2">Atualizar</button>
                 </form>
