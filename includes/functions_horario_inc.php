@@ -1,5 +1,8 @@
 <?php
 
+include_once '../pages/dashboard_psicologo/DBperfil_piscologo.php';
+include_once('../../includes/db_inc.php');
+
 function criarHorario($conn, $dia, $hora){
     $sql = "INSERT INTO adicionar_horario (dia, hora) VALUES (?, ?);";
     $stmt = mysqli_stmt_init($conn);

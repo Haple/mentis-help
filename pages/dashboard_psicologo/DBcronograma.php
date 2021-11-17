@@ -1,5 +1,21 @@
 <?php
     session_start();
+    include_once('../../includes/db_inc.php');
+    $currentUser = $_SESSION['idpsicologo'];
+    if(isset($_POST['cadastrar_horario'])){
+        $dia = $_POST['dia'];
+        $hora = $_POST['hora'];
+
+        $sql = "INSERT INTO adicionar_horario (Ref_IDPsicologo, dia, hora) VALUES ('$currentUser', ?, ?);";
+        $result=mysqli_query($conn, $sql);
+                        if($result){
+                                echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
+                        }
+                        else{
+                            echo "<div class='alert alert-success' role='alert'>Não foi possível atualizar!</div>";
+                            die(mysqli_error($conn));
+                        }
+    }
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -146,7 +162,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="../../includes/cadastrar_horario_inc.php" method="post">
+                    <form method="post">
                         <div class="mb-3">
                             <div class="form-floating">
                                 <input type="date" name="dia" class="form-control" id="floatingInputGrid"
@@ -191,6 +207,7 @@
                             <tbody>
                                 <?php
                                     include_once '../../includes/db_inc.php';
+                                    include_once '../../includes/functions_psicologo_inc.php';
                                     $sql = "SELECT dia, hora FROM adicionar_horario;";
                                     $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
                                     while($data = mysqli_fetch_assoc($rs)){

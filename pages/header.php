@@ -50,16 +50,15 @@
                                 Saúde Mental
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item disabled"
-                                        style="color: #96CDD1; font-weight: bolder;">Doenças Mentais</a></li>
                                 <li><a class="dropdown-item" href="pages/health_pages/ansiedade.php">Ansiedade</a></li>
-                                <li><a class="dropdown-item disabled"
-                                        style="color: #96CDD1; font-weight: bolder;">Distúrbios Mentais</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/bipolaridade.php">Bipolaridade</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/anorexia.php">Anorexia</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/bulimia.php">Bulimia</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/borderline.php">Transtorno Borderline</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/fobiasocial.php">Fobia Social</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/burnout.php">Síndrome de Burnout</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/sindromepanico.php">Síndrome do Pânico</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/depequimica.php">Dependência Química</a></li>
                             </ul>
                         </li>
                     </ul>

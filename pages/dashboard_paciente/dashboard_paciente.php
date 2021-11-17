@@ -40,12 +40,14 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item me-2">
-                                <a class="nav-link active" aria-current="page" href="dashboard_paciente.php"><i class="bi bi-house"></i>
+                                <a class="nav-link active" aria-current="page" href="dashboard_paciente.php"><i
+                                        class="bi bi-house"></i>
                                     Área do
                                     Paciente</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i>
+                                    Chats</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link" href="DBperfil_paciente.php"><i class="bi bi-person"></i> Pefil</a>
@@ -60,6 +62,90 @@
             </nav>
         </div>
     </div>
+
+    <!-- HORÁRIOS -->
+    <div class="container">
+        <form class="col-4 pt-4 d-flex">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
+            <button class="btn section-btn2 fw-bold">Pesquisar</button>
+        </form>
+        <div class="time-table pt-4">
+            <table class="table table-hover text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Data de Nascimento</th>
+                        <th scope="col">Visualizar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        include_once '../../includes/db_inc.php';
+                        $sql = "SELECT * FROM psicologo;";
+                        $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
+                        while($data = mysqli_fetch_assoc($rs)){
+                            $id=['IDadd_horario'];
+                        ?>
+                    <tr>
+                        <td><?=$data["nomePsicologo"] ?></td>
+                        <td><?=$data["emailPsicologo"] ?></td>
+                        <td><?=$data["sexoPsicologo"] ?></td>
+                        <td><?=$data["nascimentoPsicologo"] ?></td>
+                        <td><button class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#ver_desc">Visualizar <i class="bi bi-eye"></i></button>
+                        </td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+        <nav aria-label="Páginas">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- MODAL 1 -->
+    <div class="modal fade" id="ver_desc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Descrição</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php
+                        include_once '../../includes/db_inc.php';
+                        $sql = "SELECT descricaoPsicologo FROM psicologo;";
+                        $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
+                        if($data = mysqli_fetch_assoc($rs)){
+                            $id=['IDadd_horario'];
+                        ?>
+                    <p><?=$data["descricaoPsicologo"] ?></p>
+                    <?php
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">

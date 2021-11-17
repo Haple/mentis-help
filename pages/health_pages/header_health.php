@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -5,7 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PSPJ</title>
+    <title>Mentis</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,7 +19,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="icon" href="../resources/favicon.png">
+    <link rel="icon" href="../../resources/favicon.png">
 </head>
 
 <body>
@@ -24,9 +27,8 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light navbar-font pt-3 pb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../../index.php">
-                    <img src="../../resources/logo2.png" alt="" width="60" height="60"
-                        class="img-fluid d-inline-block align-text-top me-2">
+                <a class="navbar-brand dash-title" href="../../index.php">
+                    <div class="logo me-3">Mentis<span class="logo-ponto">.</span></div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -36,38 +38,49 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active underlink" aria-current="page" href="../../index.php">INÍCIO</a>
+                            <a class="nav-link active" aria-current="page" href="../../index.php">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link underlink" href="#">LINK</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link underlink" href="#">LINK</a>
+                            <a class="nav-link" href="../../index.php#quem">Sobre</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                DROPDOWN
+                                Saúde Mental
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item disabled" href="#"
-                                        style="color: #96CDD1; font-weight: bolder;">Doenças Mentais</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 1</a></li>
-                                <li><a class="dropdown-item" href="#"
-                                        style="color: #96CDD1; font-weight: bolder;">Distúrbios Mentais</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
-                                <li><a class="dropdown-item" href="#">Tópico 2</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/ansiedade.php">Ansiedade</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/bipolaridade.php">Bipolaridade</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/anorexia.php">Anorexia</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/bulimia.php">Bulimia</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/borderline.php">Transtorno Borderline</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/fobiasocial.php">Fobia Social</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/burnout.php">Síndrome de Burnout</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/sindromepanico.php">Síndrome do Pânico</a></li>
+                                <li><a class="dropdown-item" href="pages/health_pages/depequimica.php">Dependência Química</a></li>
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <a href="../cadastrar.php" class="navbar-font btn me-2 navbar-btn" type="button"><i
-                                class="bi bi-arrow-return-right"></i> CADASTRAR</a>
-                        <a href="#" class="navbar-font btn underlink" type="button">LOGIN</a>
-                    </form>
+                    <?php
+                        if(isset($_SESSION["idpaciente"])){
+                            echo "<form class='d-flex'>";
+                            echo "<a href='pages/dashboard_paciente/dashboard_paciente.php.php' class='navbar-font btn me-2 section-btn2' type='button'><i class='bi bi-arrow-return-right'></i> Área do Paciente</a>";
+                            echo "<a href='includes/logout_inc.php' class='navbar-font btn navbar-login_sair' type='button'>Sair</a>";
+                            echo "</form>";
+                        }
+                        else if(isset($_SESSION["idpsicologo"])){
+                            echo "<form class='d-flex'>";
+                            echo "<a href='pages/dashboard_psicologo/dashboard_psicologo.php' class='navbar-font btn me-2 section-btn2' type='button'><i class='bi bi-arrow-return-right'></i> Área do Psicólogo</a>";
+                            echo  "<a href='includes/logout_inc.php' class='navbar-font btn navbar-login_sair' type='button'>Sair</a>";
+                            echo "</form>";
+                        }
+                        else{
+                            echo "<form class='d-flex'>";
+                            echo "<a href='pages/cadastrar.php' class='navbar-font btn me-2 section-btn2' type='button'><i class='bi bi-arrow-return-right'></i> Cadastrar</a>";
+                            echo "<a href='pages/login.php' class='navbar-font btn navbar-login_sair' type='button'>Login</a>";
+                            echo "</form>";
+                        }
+                    ?>
                 </div>
             </div>
         </nav>
