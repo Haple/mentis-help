@@ -1,21 +1,5 @@
 <?php
     session_start();
-    include_once('../../includes/db_inc.php');
-    $currentUser = $_SESSION['idpsicologo'];
-    if(isset($_POST['cadastrar_horario'])){
-        $dia = $_POST['dia'];
-        $hora = $_POST['hora'];
-
-        $sql = "INSERT INTO adicionar_horario (Ref_IDPsicologo, dia, hora) VALUES ('$currentUser', ?, ?);";
-        $result=mysqli_query($conn, $sql);
-                        if($result){
-                                echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
-                        }
-                        else{
-                            echo "<div class='alert alert-success' role='alert'>Não foi possível atualizar!</div>";
-                            die(mysqli_error($conn));
-                        }
-    }
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -155,14 +139,28 @@
 
     <!-- MODAL 1 -->
     <div class="modal fade" id="adicionar_horario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <?php           
+                                    include_once '../../includes/db_inc.php';
+                                    $currentUser = $_SESSION['idpsicologo'];
+                        $sql = "SELECT * FROM psicologo WHERE IDPsicologo = $currentUser";
+                        $gotResults = mysqli_query($conn, $sql);
+
+                        if($gotResults){
+                            if(mysqli_num_rows($gotResults)>0){
+                                while($row = mysqli_fetch_array($gotResults)){
+                                    //print_r($row);
+                                    
+                        ?>
+        ?>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Adicionar Horário</h5>
+                    <h5 class="modal-title" name="ver_adicao" id="exampleModalLabel">Adicionar Horário</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post">
+
+                    <form action="../../includes/cadastrar_horario_inc.php" method="post">
                         <div class="mb-3">
                             <div class="form-floating">
                                 <input type="date" name="dia" class="form-control" id="floatingInputGrid"
@@ -170,11 +168,19 @@
                                 <label for="floatingInputGrid">Dia:<span class="text-danger">*</span></label>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div>
                             <div class="form-floating">
                                 <input type="time" name="hora" class="form-control" id="floatingInputGrid"
                                     placeholder="insira a hora de atendimento" required>
                                 <label for="floatingInputGrid">Hora:<span class="text-danger">*</span></label>
+                            </div>
+                        </div>
+                        <div class="invisible">
+                            <div class="form-floating">
+                                <input type="text" name="id" value="<?php echo $row['IDPsicologo']; ?>"
+                                    class="form-control" id="floatingInputGrid"
+                                    placeholder="insira o dia de atendimento">
+                                <label for="floatingInputGrid">ID:</label>
                             </div>
                         </div>
                         <button type="submit" name="cadastrar_horario" class="btn section-btn2">Salvar</button>
@@ -183,6 +189,11 @@
             </div>
         </div>
     </div>
+    <?php
+                                }
+                            }
+                        }
+                    ?>
 
     <!-- MODAL 2 -->
     <div class="modal fade" id="visualizar_horario" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -207,8 +218,7 @@
                             <tbody>
                                 <?php
                                     include_once '../../includes/db_inc.php';
-                                    include_once '../../includes/functions_psicologo_inc.php';
-                                    $sql = "SELECT dia, hora FROM adicionar_horario;";
+                                    $sql = "SELECT dia, hora FROM adicionar_horario WHERE Ref_IDPsicologo = '$currentUser';";
                                     $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
                                     while($data = mysqli_fetch_assoc($rs)){
                                         $id=['IDadd_horario'];
@@ -220,8 +230,7 @@
                                                 class="bi bi-pencil-fill"></i></button>
                                     </td>
                                     <td><a href="../../includes/functions_horario_inc.php?iddelete=<?php echo $id ?>"
-                                            class="btn btn-outline-danger">Excluir <i
-                                                class="bi bi-eraser-fill"></i></a>
+                                            class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></a>
                                     </td>
                                 </tr>
                                 <?php
