@@ -7,7 +7,7 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-8">
-            <h4 class="pb-2" id="oque">1. O que é</h4>
+            <h4 class="pb-2" id="oque">O que é</h4>
             <p class="lead subtopic-content">Fobia social é uma doença mental crônica na qual as relações acabam
                 causando uma ansiedade irracional no indivíduo, fazendo com que ele tenda a se isolar e evitar o contato
                 social. </p>
@@ -16,27 +16,27 @@
                 lidar para as pessoas com esse distúrbio que elas desencadeiam até mesmo reações físicas.</p>
 
 
-            <h4 class="pb-2" id="oque">2. Sintomas</h4>
+            <h4 class="pb-2" id="oque">Sintomas</h4>
             <p class="lead">Entre seus sintomas se encontram:</p>
             <ul class="list-group pb-3">
-                <li class="list-group-item border-0">- Taquicardia (sensação de falha no batimento cardíaco)</li>
-                <li class="list-group-item border-0">- Tremedeira e sudorese (transpiração em excesso)</li>
-                <li class="list-group-item border-0">- Medo excessivo de situações em que a pessoa possa ser julgada</li>
-                <li class="list-group-item border-0">- Preocupação com constrangimento ou humilhação e receio de ofender outras pessoas</li>
-                <li class="list-group-item border-0">- Ansiedade</li>
-                <li class="list-group-item border-0">- Isolamento social</li>
-                <li class="list-group-item border-0">- Depressão</li>
+                <li class="list-group-item border-0">• Taquicardia (sensação de falha no batimento cardíaco)</li>
+                <li class="list-group-item border-0">• Tremedeira e sudorese (transpiração em excesso)</li>
+                <li class="list-group-item border-0">• Medo excessivo de situações em que a pessoa possa ser julgada</li>
+                <li class="list-group-item border-0">• Preocupação com constrangimento ou humilhação e receio de ofender outras pessoas</li>
+                <li class="list-group-item border-0">• Ansiedade</li>
+                <li class="list-group-item border-0">• Isolamento social</li>
+                <li class="list-group-item border-0">• Depressão</li>
             </ul>
 
-            <h4 class="pb-2" id="oque">3. Tratamento</h4>
+            <h4 class="pb-2" id="oque">Tratamento</h4>
             <p class="lead">Pode ser tratado com:</p>
             <ul class="list-group pb-5">
-                <li class="list-group-item border-0">- Medicamentos antidepressivos
-                <li class="list-group-item border-0">- Psicoterapia
+                <li class="list-group-item border-0">• Medicamentos antidepressivos
+                <li class="list-group-item border-0">• Psicoterapia
                 </li>
             </ul>
 
-            <p><span class="fw-bold">Referêcnias:</span><br>Hospital Santa Mônica, 2020
+            <p><span class="fw-bold">Referências:</span><br>Hospital Santa Mônica, 2020
                 https://hospitalsantamonica.com.br/transtorno-de-personalidade-borderline-sintomas-e-como-identifica-los/
                 <br>
             </p>

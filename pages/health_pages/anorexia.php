@@ -7,7 +7,7 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-8">
-            <h4 class="pb-2" id="oque">1. O que é</h4>
+            <h4 class="pb-2" id="oque">O que é</h4>
             <p class="lead subtopic-content">Anorexia é um transtorno alimentar causado por um distúrbio psíquico que
                 faz a pessoa ver seu corpo de uma maneira distorcida, assim a tornando extremamente obsessiva com o seu
                 peso e com o que ela come. </p>
@@ -15,27 +15,27 @@
                 já esteja magro, e acaba por utilizar de métodos pouco saudáveis para manter-se abaixo do peso.</p>
 
 
-            <h4 class="pb-2" id="oque">2. Sintomas</h4>
+            <h4 class="pb-2" id="oque">Sintomas</h4>
             <p class="lead">Entre seus sintomas se encontram:</p>
             <ul class="list-group pb-3">
-                <li class="list-group-item border-0">- Perda de peso extrema</li>
-                <li class="list-group-item border-0">- Preocupação exagerada com o valor calórico dos alimentos</li>
-                <li class="list-group-item border-0">- Realização de atividades físicas intensas de maneira
+                <li class="list-group-item border-0">• Perda de peso extrema</li>
+                <li class="list-group-item border-0">• Preocupação exagerada com o valor calórico dos alimentos</li>
+                <li class="list-group-item border-0">• Realização de atividades físicas intensas de maneira
                     desnecessária</li>
-                <li class="list-group-item border-0">- Pele seca e coberta por lanugo (pelos finos, curtos e sem
+                <li class="list-group-item border-0">• Pele seca e coberta por lanugo (pelos finos, curtos e sem
                     pigmentação)</li>
-                <li class="list-group-item border-0">- Desenvolvimento de outras doenças como depressão, síndrome do
+                <li class="list-group-item border-0">• Desenvolvimento de outras doenças como depressão, síndrome do
                     pânico e comportamentos obsessivo-compulsivos</li>
             </ul>
 
-            <h4 class="pb-2" id="oque">3. Tratamento</h4>
+            <h4 class="pb-2" id="oque">Tratamento</h4>
             <p class="lead">Pode ser tratado com:</p>
             <ul class="list-group pb-5">
-                <li class="list-group-item border-0">- Tratamento médico para se estabelecer novamente um peso normal
+                <li class="list-group-item border-0">• Tratamento médico para se estabelecer novamente um peso normal
                 </li>
             </ul>
 
-            <p><span class="fw-bold">Referêcnias:</span><br>Drauzio Varella, 2011
+            <p><span class="fw-bold">Referências:</span><br>Drauzio Varella, 2011
                 https://drauziovarella.uol.com.br/doencas-e-sintomas/anorexia-nervosa/ <br>
             </p>
         </div>

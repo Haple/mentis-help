@@ -7,7 +7,7 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-8">
-            <h4 class="pb-2" id="oque">1. O que é</h4>
+            <h4 class="pb-2" id="oque">O que é</h4>
             <p class="lead subtopic-content">Síndrome de Burnout é um distúrbio psíquico gerado por condições de
                 trabalho desgastantes, causando estresse e tensão emocional. </p>
             <p class="lead subtopic-content pb-3">Atinge principalmente profissionais cuja profissão requer algum
@@ -15,27 +15,27 @@
                 profissionais diretamente ligados a segurança pública, como bombeiros e policiais.</p>
 
 
-            <h4 class="pb-2" id="oque">2. Sintomas</h4>
+            <h4 class="pb-2" id="oque">Sintomas</h4>
             <p class="lead">Entre seus sintomas se encontram:</p>
             <ul class="list-group pb-3">
-                <li class="list-group-item border-0">- Mudanças bruscas de humor</li>
-                <li class="list-group-item border-0">- Isolamento</li>
-                <li class="list-group-item border-0">- Dificuldade de concentração</li>
-                <li class="list-group-item border-0">- Baixa autoestima</li>
-                <li class="list-group-item border-0">- Depressão</li>
-                <li class="list-group-item border-0">- Ansiedade</li>
-                <li class="list-group-item border-0">- Lapsos de memória</li>
+                <li class="list-group-item border-0">• Mudanças bruscas de humor</li>
+                <li class="list-group-item border-0">• Isolamento</li>
+                <li class="list-group-item border-0">• Dificuldade de concentração</li>
+                <li class="list-group-item border-0">• Baixa autoestima</li>
+                <li class="list-group-item border-0">• Depressão</li>
+                <li class="list-group-item border-0">• Ansiedade</li>
+                <li class="list-group-item border-0">• Lapsos de memória</li>
             </ul>
 
-            <h4 class="pb-2" id="oque">3. Tratamento</h4>
+            <h4 class="pb-2" id="oque">Tratamento</h4>
             <p class="lead">Pode ser tratado com:</p>
             <ul class="list-group pb-5">
-                <li class="list-group-item border-0">- Uso de antidepressivos
-                <li class="list-group-item border-0">- Tratamento psicoterapêutico
+                <li class="list-group-item border-0">• Uso de antidepressivos
+                <li class="list-group-item border-0">• Tratamento psicoterapêutico
                 </li>
             </ul>
 
-            <p><span class="fw-bold">Referêcnias:</span><br>Drauzio Varella, 2011
+            <p><span class="fw-bold">Referências:</span><br>Drauzio Varella, 2011
                 https://drauziovarella.uol.com.br/doencas-e-sintomas/sindrome-de-burnout-esgotamento-profissional/
                 <br>
             </p>

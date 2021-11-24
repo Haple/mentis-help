@@ -44,22 +44,8 @@
                         <li class="nav-item">
                             <a class="nav-link underlink" href="../index.php#quem">Sobre</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Saúde Mental
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="pages/health_pages/ansiedade.php">Ansiedade</a></li>
-                                <li><a class="dropdown-item" href="pages/health_pages/bipolaridade.php">Bipolaridade</a></li>
-                                <li><a class="dropdown-item" href="pages/health_pages/anorexia.php">Anorexia</a></li>
-                                <li><a class="dropdown-item" href="pages/health_pages/bulimia.php">Bulimia</a></li>
-                                <li><a class="dropdown-item" href="pages/health_pages/borderline.php">Transtorno Borderline</a></li>
-                                <li><a class="dropdown-item" href="pages/health_pages/fobiasocial.php">Fobia Social</a></li>
-                                <li><a class="dropdown-item" href="pages/health_pages/burnout.php">Síndrome de Burnout</a></li>
-                                <li><a class="dropdown-item" href="pages/health_pages/sindromepanico.php">Síndrome do Pânico</a></li>
-                                <li><a class="dropdown-item" href="pages/health_pages/depequimica.php">Dependência Química</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="health_pages/saude_mental.php">Saúde Mental</a>
                         </li>
                     </ul>
                     <?php

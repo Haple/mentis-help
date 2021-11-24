@@ -16,5 +16,4 @@ function criarHorario($conn, $refID ,$dia, $hora){
     header("location: ../pages/dashboard_psicologo/DBcronograma.php?error=none");
     exit();
 }
-
 ?>

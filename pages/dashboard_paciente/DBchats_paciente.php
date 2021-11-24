@@ -48,7 +48,7 @@
                                 <a class="nav-link active" aria-current="page" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i> Chats</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBperfil_paciente.php"><i class="bi bi-person"></i> Pefil</a>
+                                <a class="nav-link" href="DBperfil_paciente.php"><i class="bi bi-person"></i> Perfil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="../../includes/logout_inc.php"><i

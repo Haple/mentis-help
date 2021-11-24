@@ -1,7 +1,5 @@
 <?php
-
 if (isset($_POST["cadastrar_psicologo"])) {
-
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $cpf = $_POST["cpf"];
@@ -24,12 +22,10 @@ if (isset($_POST["cadastrar_psicologo"])) {
         header("location: ../pages/cadastrar_psicologo.php?error=emailutilizado");
         exit();
     }
-
     criarUsuario($conn, $nome, $email, $cpf, $crp, $sexo, $nascimento, $senha1, $descricao);
-
 }
 else{
     header("location: ../pages/cadastrar_psicologo.php");
 }
-
 ?>
+

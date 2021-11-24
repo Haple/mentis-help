@@ -53,7 +53,7 @@
                                     Chats</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBperfil_psicologo.php"><i class="bi bi-person"></i> Pefil</a>
+                                <a class="nav-link" href="DBperfil_psicologo.php"><i class="bi bi-person"></i> Perfil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="../../includes/logout_inc.php"><i
@@ -79,7 +79,7 @@
         <!-- HORÁRIOS -->
         <div class="time-table pt-3">
             <table class="table table-hover text-center">
-                <thead class="table-light">
+                <thead>
                     <tr>
                         <th scope="col">Data</th>
                         <th scope="col">Horário</th>
@@ -90,27 +90,27 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td><button class="btn btn-outline-primary">Editar <i class="bi bi-pencil-fill"></i></button>
                         </td>
                         <td><button class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td><button class="btn btn-outline-primary">Editar <i class="bi bi-pencil-fill"></i></button>
                         </td>
                         <td><button class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></button>
                         </td>
                     </tr>
                     <tr>
-                        <td>Larry the Bird</td>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td><button class="btn btn-outline-primary">Editar <i class="bi bi-pencil-fill"></i></button>
                         </td>
                         <td><button class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></button>
@@ -140,17 +140,14 @@
     <!-- MODAL 1 -->
     <div class="modal fade" id="adicionar_horario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <?php           
-                                    include_once '../../includes/db_inc.php';
-                                    $currentUser = $_SESSION['idpsicologo'];
-                        $sql = "SELECT * FROM psicologo WHERE IDPsicologo = $currentUser";
-                        $gotResults = mysqli_query($conn, $sql);
-
-                        if($gotResults){
-                            if(mysqli_num_rows($gotResults)>0){
-                                while($row = mysqli_fetch_array($gotResults)){
-                                    //print_r($row);
-                                    
-                        ?>
+            include_once '../../includes/db_inc.php';
+            $currentUser = $_SESSION['idpsicologo'];
+            $sql = "SELECT * FROM psicologo WHERE IDPsicologo = $currentUser";
+            $gotResults = mysqli_query($conn, $sql);
+                if($gotResults){
+                    if(mysqli_num_rows($gotResults)>0){
+                    while($row = mysqli_fetch_array($gotResults)){
+                        //print_r($row);
         ?>
         <div class="modal-dialog">
             <div class="modal-content">
@@ -159,7 +156,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                     <form action="../../includes/cadastrar_horario_inc.php" method="post">
                         <div class="mb-3">
                             <div class="form-floating">
@@ -168,19 +164,19 @@
                                 <label for="floatingInputGrid">Dia:<span class="text-danger">*</span></label>
                             </div>
                         </div>
-                        <div>
+                        <div class="mb-3">
                             <div class="form-floating">
                                 <input type="time" name="hora" class="form-control" id="floatingInputGrid"
                                     placeholder="insira a hora de atendimento" required>
                                 <label for="floatingInputGrid">Hora:<span class="text-danger">*</span></label>
                             </div>
                         </div>
-                        <div class="invisible">
+                        <div>
                             <div class="form-floating">
-                                <input type="text" name="id" value="<?php echo $row['IDPsicologo']; ?>"
+                                <input type="hidden" name="id" value="<?php echo $row['IDPsicologo']; ?>"
                                     class="form-control" id="floatingInputGrid"
                                     placeholder="insira o dia de atendimento">
-                                <label for="floatingInputGrid">ID:</label>
+                                <label for="floatingInputGrid"></label>
                             </div>
                         </div>
                         <button type="submit" name="cadastrar_horario" class="btn section-btn2">Salvar</button>
@@ -207,7 +203,7 @@
                 <div class="modal-body">
                     <div class="time-table">
                         <table class="table table-hover text-center">
-                            <thead class="table-light">
+                            <thead>
                                 <tr>
                                     <th scope="col">Data</th>
                                     <th scope="col">Horário</th>
@@ -218,19 +214,20 @@
                             <tbody>
                                 <?php
                                     include_once '../../includes/db_inc.php';
-                                    $sql = "SELECT dia, hora FROM adicionar_horario WHERE Ref_IDPsicologo = '$currentUser';";
+                                    $sql = "SELECT * FROM adicionar_horario WHERE Ref_IDPsicologo = '$currentUser';";
                                     $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
                                     while($data = mysqli_fetch_assoc($rs)){
-                                        $id=['IDadd_horario'];
                                 ?>
                                 <tr>
+                                    <td class="d-none"><?=$data["IDadd_horario"]?></td>
                                     <td><?=$data["dia"] ?></td>
                                     <td><?=$data["hora"] ?></td>
                                     <td><button class="btn btn-outline-primary">Editar <i
                                                 class="bi bi-pencil-fill"></i></button>
                                     </td>
-                                    <td><a href="../../includes/functions_horario_inc.php?iddelete=<?php echo $id ?>"
-                                            class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></a>
+                                    <td>
+                                        <a type="submit" name="deletar_horario" class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></a>
+
                                     </td>
                                 </tr>
                                 <?php

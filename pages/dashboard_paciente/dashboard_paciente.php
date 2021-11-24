@@ -50,7 +50,7 @@
                                     Chats</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBperfil_paciente.php"><i class="bi bi-person"></i> Pefil</a>
+                                <a class="nav-link" href="DBperfil_paciente.php"><i class="bi bi-person"></i> Perfil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="../../includes/logout_inc.php"><i
@@ -77,7 +77,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Sexo</th>
                         <th scope="col">Data de Nascimento</th>
-                        <th scope="col">Visualizar</th>
+                        <th scope="col">Descrição</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -93,9 +93,7 @@
                         <td><?=$data["emailPsicologo"] ?></td>
                         <td><?=$data["sexoPsicologo"] ?></td>
                         <td><?=$data["nascimentoPsicologo"] ?></td>
-                        <td><button class="btn btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#ver_desc">Visualizar <i class="bi bi-eye"></i></button>
-                        </td>
+                        <td><?=$data["descricaoPsicologo"] ?></td>
                     </tr>
                     <?php
                         }
@@ -121,7 +119,7 @@
         </nav>
     </div>
 
-    <!-- MODAL 1 -->
+    <!-- MODAL 1 
     <div class="modal fade" id="ver_desc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -132,7 +130,7 @@
                 <div class="modal-body">
                     <?php
                         include_once '../../includes/db_inc.php';
-                        $sql = "SELECT descricaoPsicologo FROM psicologo;";
+                        $sql = "SELECT descricaoPsicologo FROM psicologo WHERE ;";
                         $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
                         if($data = mysqli_fetch_assoc($rs)){
                             $id=['IDadd_horario'];
@@ -144,7 +142,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

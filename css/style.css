@@ -149,6 +149,10 @@ ul {
   border-radius: 10px;
 }
 
+.time-mark{
+    background-color: rgba(151, 206, 209, 0.3);
+}
+
 /* HEALTH PAGES */
 .subtopic-content{
     text-align: justify;

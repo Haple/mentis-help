@@ -7,7 +7,7 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-8">
-            <h4 class="pb-2" id="oque">1. O que é</h4>
+            <h4 class="pb-2" id="oque">O que é</h4>
             <p class="lead subtopic-content">Bulimia é um transtorno alimentar causado por uma distúrbio psíquico que
                 torna a pessoa compulsiva em comer, seguido de formas para evitar o ganho de peso, podendo ser até mesmo
                 fatal. </p>
@@ -16,29 +16,29 @@
                 atividades físicas de forma exaustiva e fazer jejuns prolongados.</p>
 
 
-            <h4 class="pb-2" id="oque">2. Sintomas</h4>
+            <h4 class="pb-2" id="oque">Sintomas</h4>
             <p class="lead">Entre seus sintomas se encontram:</p>
             <ul class="list-group pb-3">
-                <li class="list-group-item border-0">- Fazer ingestão de forma exagerada de alimentos em um curto
+                <li class="list-group-item border-0">• Fazer ingestão de forma exagerada de alimentos em um curto
                     período de tempo</li>
-                <li class="list-group-item border-0">- Autoinduzir o vômito</li>
-                <li class="list-group-item border-0">- Fazer o uso desregulado de laxantes e diuréticos</li>
-                <li class="list-group-item border-0">- Desenvolvimento de outras doenças mentais, tais como depressão,
+                <li class="list-group-item border-0">• Auto induzir o vômito</li>
+                <li class="list-group-item border-0">• Fazer o uso desregulado de laxantes e diuréticos</li>
+                <li class="list-group-item border-0">• Desenvolvimento de outras doenças mentais, tais como depressão,
                     ansiedade e comportamento obsessivo-compulsivo;</li>
-                <li class="list-group-item border-0">- Distorção da autoimagem; baixa autoestima</li>
+                <li class="list-group-item border-0">• Distorção da autoimagem; baixa autoestima</li>
             </ul>
 
-            <h4 class="pb-2" id="oque">3. Tratamento</h4>
+            <h4 class="pb-2" id="oque">Tratamento</h4>
             <p class="lead">Pode ser tratado com:</p>
             <ul class="list-group pb-5">
-                <li class="list-group-item border-0">- Psicoterapia (especialmente a cognitivo-comportamental)
-                <li class="list-group-item border-0">- Uso de medicamentos antidepressivos para lidar com os distúrbios
+                <li class="list-group-item border-0">• Psicoterapia (especialmente a cognitivo-comportamental)
+                <li class="list-group-item border-0">• Uso de medicamentos antidepressivos para lidar com os distúrbios
                     como a depressão e ansiedade
-                <li class="list-group-item border-0">- Educação nutricional
+                <li class="list-group-item border-0">• Educação nutricional
                 </li>
             </ul>
 
-            <p><span class="fw-bold">Referêcnias:</span><br>Drauzio Varella, 2011
+            <p><span class="fw-bold">Referências:</span><br>Drauzio Varella, 2011
                 https://drauziovarella.uol.com.br/doencas-e-sintomas/bulimia-nervosa/<br>
             </p>
         </div>

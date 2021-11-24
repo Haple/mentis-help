@@ -37,7 +37,8 @@ function uidExists($conn, $email, $cpf){
 }
 
 function criarUsuario($conn, $nome, $email, $cpf, $sexo, $estado_civil, $nascimento, $senha1){
-    $sql = "INSERT INTO paciente (nomePaciente, emailPaciente, CPFPaciente, sexoPaciente, estado_civilPaciente, nascimentoPaciente, senhaPaciente) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO paciente (nomePaciente, emailPaciente, CPFPaciente, sexoPaciente, estado_civilPaciente, 
+    nascimentoPaciente, senhaPaciente) VALUES (?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../pages/cadastrar_paciente.php?error=stmtfalhou");
@@ -79,3 +80,4 @@ function loginUser($conn, $email, $senha1){
     }
 }
 ?>
+

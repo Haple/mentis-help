@@ -7,33 +7,33 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-8">
-            <h4 class="pb-2" id="oque">1. O que é</h4>
+            <h4 class="pb-2" id="oque">O que é</h4>
             <p class="lead subtopic-content">Bipolaridade é uma doença psíquica marcada pela alternância entre a fase
                 maníaca e depressiva, podendo variar em frequência, intensidade e duração. </p>
             <p class="lead subtopic-content pb-3">A duração dos episódios de depressão e euforia pode ser de dias ou até
                 meses, e os mesmos podem estar associados a pensamentos suicidas.</p>
 
 
-            <h4 class="pb-2" id="oque">2. Sintomas</h4>
+            <h4 class="pb-2" id="oque">Sintomas</h4>
             <p class="lead">Entre seus sintomas se encontram (durante a fase maníaca):</p>
             <ul class="list-group pb-3">
-                <li class="list-group-item border-0">- Euforia</li>
-                <li class="list-group-item border-0">- Dificuldade para dormir</li>
-                <li class="list-group-item border-0">- Perda de contato com a realidade</li>
+                <li class="list-group-item border-0">• Euforia</li>
+                <li class="list-group-item border-0">• Dificuldade para dormir</li>
+                <li class="list-group-item border-0">• Perda de contato com a realidade</li>
             </ul>
             <p class="lead">A fase depressiva, por outro lado, apresenta sintomas como:</p>
             <ul class="list-group pb-3">
-                <li class="list-group-item border-0">- Falta de energia e motivação</li>
-                <li class="list-group-item border-0">- Perda de interessa nas atividades cotidianas</li>
+                <li class="list-group-item border-0">• Falta de energia e motivação</li>
+                <li class="list-group-item border-0">• Perda de interessa nas atividades cotidianas</li>
             </ul>
 
-            <h4 class="pb-2" id="oque">3. Tratamento</h4>
+            <h4 class="pb-2" id="oque">Tratamento</h4>
             <p class="lead">O tratamento para a doença costuma durar a vida toda e geralmente demanda:</p>
             <ul class="list-group pb-5">
                 <li class="list-group-item border-0">- Uso de medicamentos e da psicoterapia de forma simultânea</li>
             </ul>
 
-            <p><span class="fw-bold">Referêcnias:</span><br>Drauzio Varella, 2013
+            <p><span class="fw-bold">Referências:</span><br>Drauzio Varella, 2013
                 https://drauziovarella.uol.com.br/doencas-e-sintomas/transtorno-bipolar-2/ <br>
             </p>
         </div>

@@ -15,4 +15,8 @@ if (isset($_POST["cadastrar_horario"])) {
 else{
     header("location: ../pages/dashboard_psicologo/DBcronograma.php");
 }
+
+if (isset($_POST["deletar_horario"])){
+    $IDadd = $_POST[""];
+}
 ?>

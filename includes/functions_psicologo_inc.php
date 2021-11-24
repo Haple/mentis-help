@@ -31,9 +31,7 @@ function uidExists($conn, $email, $cpf, $crp){
         $result = false;
         return $result;
     }
-
     mysqli_stmt_close($stmt);
-
 }
 
 function criarUsuario($conn, $nome, $email, $cpf, $crp, $sexo, $nascimento ,$senha1, $descricao){
@@ -43,7 +41,6 @@ function criarUsuario($conn, $nome, $email, $cpf, $crp, $sexo, $nascimento ,$sen
         header("location: ../pages/cadastrar_psicologo.php?error=stmtfalhou");
         exit();
     }
-
     $hashedSenha = password_hash($senha1, PASSWORD_DEFAULT);
 
     mysqli_stmt_bind_param($stmt, "ssssssss", $nome, $email, $cpf, $crp, $sexo, $nascimento, $hashedSenha, $descricao);

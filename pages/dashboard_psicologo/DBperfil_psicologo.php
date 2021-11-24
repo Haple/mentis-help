@@ -69,7 +69,7 @@
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link active me-2" aria-current="page" href="DBperfil_psicologo.php"><i
-                                        class="bi bi-person"></i> Pefil</a>
+                                        class="bi bi-person"></i> Perfil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="../../includes/logout_inc.php"><i

@@ -7,7 +7,7 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-8">
-            <h4 class="pb-2" id="oque">1. O que é</h4>
+            <h4 class="pb-2" id="oque">O que é</h4>
             <p class="lead subtopic-content">Transtorno Borderline é uma doença psíquica que causa instabilidade
                 emocional, comportamental e nos relacionamentos das pessoas que a possuem.</p>
             <p class="lead subtopic-content pb-3">O indivíduo que possui tal transtorno tende a apresentar uma
@@ -16,27 +16,27 @@
                 torna-se um grande sofrimento.</p>
 
 
-            <h4 class="pb-2" id="oque">2. Sintomas</h4>
+            <h4 class="pb-2" id="oque">Sintomas</h4>
             <p class="lead">Entre seus sintomas se encontram:</p>
             <ul class="list-group pb-3">
-                <li class="list-group-item border-0">- Instabilidade emocional</li>
-                <li class="list-group-item border-0">- Sensação de inutilidade</li>
-                <li class="list-group-item border-0">- Insegurança</li>
-                <li class="list-group-item border-0">- Dificuldades de autopercepção</li>
-                <li class="list-group-item border-0">- Impulsividade</li>
-                <li class="list-group-item border-0">- Relação sociais prejudicadas</li>
+                <li class="list-group-item border-0">• Instabilidade emocional</li>
+                <li class="list-group-item border-0">• Sensação de inutilidade</li>
+                <li class="list-group-item border-0">• Insegurança</li>
+                <li class="list-group-item border-0">• Dificuldades de autopercepção</li>
+                <li class="list-group-item border-0">• Impulsividade</li>
+                <li class="list-group-item border-0">• Relação sociais prejudicadas</li>
             </ul>
 
-            <h4 class="pb-2" id="oque">3. Tratamento</h4>
+            <h4 class="pb-2" id="oque">Tratamento</h4>
             <p class="lead">Pode ser tratado com:</p>
             <ul class="list-group pb-5">
-                <li class="list-group-item border-0">- Psicoterapia
-                <li class="list-group-item border-0">- Medicamentos (em casos graves)
-                <li class="list-group-item border-0">- A hospitalização também ajuda caso seja um quadro grave
+                <li class="list-group-item border-0">• Psicoterapia
+                <li class="list-group-item border-0">• Medicamentos (em casos graves)
+                <li class="list-group-item border-0">• A hospitalização também ajuda caso seja um quadro grave
                 </li>
             </ul>
 
-            <p><span class="fw-bold">Referêcnias:</span><br>Hospital Santa Mônica, 2020
+            <p><span class="fw-bold">Referências:</span><br>Hospital Santa Mônica, 2020
                 https://hospitalsantamonica.com.br/transtorno-de-personalidade-borderline-sintomas-e-como-identifica-los/
                 <br>
             </p>
