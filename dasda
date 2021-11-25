@@ -1,21 +1,5 @@
 <?php
     session_start();
-    include_once('../../includes/db_inc.php');
-    $currentUser = $_SESSION['idpaciente'];
-                    if(isset($_POST['agendar_horario'])){
-                        $novoid = $_POST['id'];
-                        $novonome = $_POST['nome'];
-                
-                        $sql="UPDATE adicionar_horario SET Ref_IDPaciente = '$novoid', NomePaciente = '$novonome' WHERE IDadd_horario = id_upd";
-                        $result=mysqli_query($conn, $sql);
-                        if($result){
-                                echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
-                        }
-                        else{
-                            echo "<div class='alert alert-success' role='alert'>Não foi possível atualizar!</div>";
-                            die(mysqli_error($conn));
-                        }
-                    }
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -87,7 +71,6 @@
             <table class="table table-hover text-center">
                 <thead class="table-light">
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Dia</th>
                         <th scope="col">Hora</th>
@@ -97,18 +80,21 @@
                 </thead>
                 <tbody>
                     <?php
+                        include_once '../../includes/db_inc.php';
                         $sql = "SELECT * FROM adicionar_horario WHERE disponibilidade = 'Disponível';";
-                        $rs = mysqli_query($conn, $sql);
-                        while($row = mysqli_fetch_assoc($rs)){
+                        $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
+                        while($data = mysqli_fetch_assoc($rs)){
+                            $id=['IDadd_horario'];
                         ?>
                     <tr>
-                        <td><?=  $row["IDadd_horario"] ?></td>
-                        <td><?=  $row["NomePsicologo"] ?></td>
-                        <td><?=  $row["dia"] ?></td>
-                        <td><?=  $row["hora"] ?></td>
-                        <td class="text-success fw-bolder"><?=$row["disponibilidade"] ?></td>
-                        <td><a name="upd_horario" type="submit" href="../../includes/update_horario.php?id_upd=<?php echo $row['IDadd_horario']?>"
-                                class="btn btn-primary"> Agendar</a>
+                        <td><?=$data["NomePsicologo"] ?></td>
+                        <td><?=$data["dia"] ?></td>
+                        <td><?=$data["hora"] ?></td>
+                        <td class="text-success fw-bolder"><?=$data["disponibilidade"] ?></td>
+                        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Agendar
+                            </button>
                         </td>
                     </tr>
                     <?php
@@ -216,16 +202,6 @@
         </div>
     </div>-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <?php           
-            include_once '../../includes/db_inc.php';
-            $currentUser = $_SESSION['idpaciente'];
-            $sql = "SELECT * FROM paciente WHERE IDPaciente = $currentUser";
-            $gotResults = mysqli_query($conn, $sql);
-                if($gotResults){
-                    if(mysqli_num_rows($gotResults)>0){
-                    while($row = mysqli_fetch_array($gotResults)){
-                        //print_r($row);
-        ?>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -233,34 +209,47 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Deseja agendar uma consulta neste horário?</p>
-                    <form method="post">
+                    <form action="../../includes/cadastrar_horario_inc.php" method="post">
                         <div class="mb-3">
                             <div class="form-floating">
-                                <input type="hidden" name="id" value="<?php echo $row['IDPaciente']; ?>"
-                                    class="form-control" id="floatingInputGrid"
+                                <input type="date" name="dia" class="form-control" id="floatingInputGrid"
                                     placeholder="insira o dia de atendimento" required>
+                                <label for="floatingInputGrid">Dia:<span class="text-danger">*</span></label>
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="form-floating">
-                                <input type="hidden" name="nome" value="<?php echo $row['nomePaciente']; ?>"
-                                    class="form-control" id="floatingInputGrid"
-                                    placeholder="insira o dia de atendimento" required>
+                                <input type="time" name="hora" value="<?php echo $row['hora']; ?>" class="form-control" id="floatingInputGrid"
+                                    placeholder="insira a hora de atendimento" required>
+                                <label for="floatingInputGrid">Hora:<span class="text-danger">*</span></label>
                             </div>
                         </div>
-                        <button type="submit" name="agendar_horario" class="btn section-btn2 me-2">Sim</button>
-                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Não</button>
+                        <div>
+                            <div class="form-floating">
+                                <input type="hidden" name="id" value="<?php echo $row['IDPsicologo']; ?>"
+                                    class="form-control" id="floatingInputGrid"
+                                    placeholder="insira o dia de atendimento">
+                                <label for="floatingInputGrid"></label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-floating">
+                                <input  name="nome" value="<?php echo $row['nomePaciente']; ?>"
+                                    class="form-control" id="floatingInputGrid"
+                                    placeholder="insira o dia de atendimento">
+                                <label for="floatingInputGrid"></label>
+                            </div>
+                        </div>
+                        <button type="submit" name="cadastrar_horario" class="btn section-btn2">Salvar</button>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
-    <?php
-                                }
-                            }
-                        }
-                    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">

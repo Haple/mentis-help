@@ -50,7 +50,7 @@
                     <?php
                         if(isset($_SESSION["idpaciente"])){
                             echo "<form class='d-flex'>";
-                            echo "<a href='../dashboard_paciente/dashboard_paciente.php.php' class='navbar-font btn me-2 section-btn2' type='button'><i class='bi bi-arrow-return-right'></i> Área do Paciente</a>";
+                            echo "<a href='../dashboard_paciente/dashboard_paciente.php' class='navbar-font btn me-2 section-btn2' type='button'><i class='bi bi-arrow-return-right'></i> Área do Paciente</a>";
                             echo "<a href='../../includes/logout_inc.php' class='navbar-font btn navbar-login_sair' type='button'>Sair</a>";
                             echo "</form>";
                         }

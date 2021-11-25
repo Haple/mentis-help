@@ -53,7 +53,8 @@
                                     Chats</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBperfil_psicologo.php"><i class="bi bi-person"></i> Perfil</a>
+                                <a class="nav-link" href="DBperfil_psicologo.php"><i class="bi bi-person"></i>
+                                    Perfil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="../../includes/logout_inc.php"><i
@@ -179,6 +180,14 @@
                                 <label for="floatingInputGrid"></label>
                             </div>
                         </div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="hidden" name="nome" value="<?php echo $row['nomePsicologo']; ?>"
+                                    class="form-control" id="floatingInputGrid"
+                                    placeholder="insira o dia de atendimento">
+                                <label for="floatingInputGrid"></label>
+                            </div>
+                        </div>
                         <button type="submit" name="cadastrar_horario" class="btn section-btn2">Salvar</button>
                     </form>
                 </div>
@@ -222,12 +231,13 @@
                                     <td class="d-none"><?=$data["IDadd_horario"]?></td>
                                     <td><?=$data["dia"] ?></td>
                                     <td><?=$data["hora"] ?></td>
-                                    <td><button class="btn btn-outline-primary">Editar <i
-                                                class="bi bi-pencil-fill"></i></button>
-                                    </td>
                                     <td>
-                                        <a type="submit" name="deletar_horario" class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></a>
-
+                                        <form method="post">
+                                            <a href="../../functions_horario_inc.php?id_del=<?php echo $row['IDadd_horario']?>"
+                                                type="submit" name="deletar_horario"
+                                                class="btn btn-outline-danger">Excluir
+                                                <i class="bi bi-eraser-fill"></i></a>
+                                        </form>
                                     </td>
                                 </tr>
                                 <?php
