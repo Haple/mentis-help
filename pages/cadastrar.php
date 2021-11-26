@@ -23,7 +23,7 @@
 <div class="container pt-5 text-center">
     <div class="pb-5">
         <p class="lead">Já possui uma conta? clique no botão abaixo para logar!</p>
-        <a href="login.php" class="btn section-btn2">Login</a>
+        <a href="login.php" class="btn section-btn2 navbar-font">Login</a>
     </div>
 </div>
 

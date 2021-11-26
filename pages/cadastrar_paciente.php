@@ -94,11 +94,11 @@
                             }
                         }
                     ?>
-                    <button type="submit" name="cadastrar_paciente" class="btn section-btn2 ">Cadastrar</button>
+                    <button type="submit" name="cadastrar_paciente" class="btn section-btn2 navbar-font">Cadastrar</button>
                     <div class="container pt-3 text-center">
                         <div>
                             <p>Já possui uma conta? Clique abaixo para logar!</p>
-                            <a href="login.php" class="btn section-btn2">Login</a>
+                            <a href="login.php" class="btn section-btn2 navbar-font">Login</a>
                         </div>
                     </div>
                 </form>

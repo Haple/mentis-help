@@ -5,12 +5,12 @@ if (isset($_POST["cadastrar_horario"])) {
     $dia = $_POST["dia"];
     $hora = $_POST["hora"];
     $refID = $_POST["id"];
-    $nomePsi = $_POST["nome"];
+    $link = $_POST["link"];
     
     require_once 'db_inc.php';
     require_once 'functions_horario_inc.php';
 
-    criarHorario($conn, $refID, $nomePsi, $dia, $hora);
+    criarHorario($conn, $refID, $dia, $hora, $link);
 
 }
 else{

@@ -142,11 +142,25 @@ ul {
 }
 
 /* DASHBOARD */
-.card-formDBPsi{
+.card-formDBPac{
   width: 700px;
-  height: 600px;
+  height: 470px;
   background-color: white;
   border-radius: 10px;
+}
+
+.card-formDBPsi{
+    width: 700px;
+    height: 580px;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+.card-form4{
+    width: 1000px;
+    height: 350px;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .time-mark{

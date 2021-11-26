@@ -2,25 +2,6 @@
     session_start();
     include_once('../../includes/db_inc.php');
     $currentUser = $_SESSION['idpaciente'];
-    if(isset($_POST['update_paciente'])){
-        $novonome = $_POST['update_nome'];
-        $novoemail = $_POST['update_email'];
-        $novocpf = $_POST['update_cpf'];
-        $novocrp = $_POST['update_crp'];
-        $novonascimento = $_POST['update_nascimento'];
-        $novodesc = $_POST['update_descricao'];
-
-        $sql="UPDATE paciente SET nomePaciente = '$novonome', emailPaciente = '$novoemail',
-        CPFPaciente = '$novocpf', nascimentoPaciente = '$novonascimento', 
-        descricaoPaciente = '$novodesc' WHERE IDPaciente = $currentUser";
-        $result=mysqli_query($conn, $sql);
-        if($result){
-                echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
-        }
-        else{
-            die(mysqli_error($conn));
-        }
-    }
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -65,7 +46,8 @@
                                     Paciente</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i>
+                                    Consulta</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link active me-2" aria-current="page" href="DBperfil_paciente.php"><i
@@ -83,7 +65,7 @@
     </div>
 
     <div class="p-5 container d-flex justify-content-center">
-        <div class="card-formDBPsi shadow">
+        <div class="card-formDBPac shadow">
             <div class="container pt-5 pe-5 ps-5">
                 <form method="POST">
                     <?php
@@ -114,49 +96,53 @@
                             <label for="floatingInputGrid">Endereço de Email:</label>
                         </div>
                     </div>
-
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <select name="update_sexo" class="form-select" id="floatingSelectGrid"
+                                aria-label="Floating label select example">
+                                <option selected value="Feminino">Feminino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                            <label for="floatingSelectGrid">Sexo<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
                     <?php
-                    if(isset($_POST['update_psicologo'])){
-                        $novonome = $_POST['update_nome'];
-                        $novoemail = $_POST['update_email'];
-                        $novocpf = $_POST['update_cpf'];
-                        $novocrp = $_POST['update_crp'];
-                        $novosexo = $_POST['update_sexo'];
-                        $novonascimento = $_POST['update_nascimento'];
-                        $novosenha = $_POST['update_senha'];
-                        $novodesc = $_POST['update_descricao'];
-                
-                        $sql="UPDATE psicologo SET nomePsicologo = '$novonome', emailPsicologo = '$novoemail',
-                        CPFPsicologo = '$novocpf', CRP = '$novocrp', sexoPsicologo = '$novosexo',
-                        nascimentoPsicologo = '$novonascimento', senhaPsicologo = '$novosenha', descricaoPsicologo = '$novodesc' WHERE IDPsicologo = $currentUser";
-                        $result=mysqli_query($conn, $sql);
-                        if($result){
-                                echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
-                        }
-                        else{
-                            die(mysqli_error($conn));
-                        }
-                    }
-                        if(isset($_GET["error"])){
-                            if($_GET["error"] == "senhasdiferentes"){
-                                echo "<div class='p-3'>";
-                                echo "<p class='text-danger fw-bold bg-success'><i class='bi bi-x-circle'></i> Senhas diferentes.</p>";
-                                echo "</div>";
+                        if(isset($_POST['update_paciente'])){
+                            $novonome = $_POST['update_nome'];
+                            $novoemail = $_POST['update_email'];
+                            $novosexo = $_POST['update_sexo'];
+
+                            $sql="UPDATE paciente SET nomePaciente = '$novonome', emailPaciente = '$novoemail',
+                            sexoPaciente = '$novosexo' WHERE IDPaciente = $currentUser";
+                            $result=mysqli_query($conn, $sql);
+                            if($result){
+                                    echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
                             }
-                            else if ($_GET["error"] == "emailutilizado"){
-                                echo "<div class='p-3'>";
-                                echo "<p class='text-danger fw-bold'><i class='bi bi-x-circle'></i> Email, CPF ou CRP já cadastrados.</p>";
-                                echo "</div>";
-                            }
-                            else if ($_GET["error"] == "none"){
-                                echo "<div class='p-3'>";
-                                echo "<p class='text-success fw-bold'><i class='bi bi-patch-check'></i> Cadastro concluído!</p>";
-                                echo "</div>";
+                            else{
+                                die(mysqli_error($conn));
                             }
                         }
+                            if(isset($_GET["error"])){
+                                if($_GET["error"] == "senhasdiferentes"){
+                                    echo "<div class='p-3'>";
+                                    echo "<p class='text-danger fw-bold bg-success'><i class='bi bi-x-circle'></i> Senhas diferentes.</p>";
+                                    echo "</div>";
+                                }
+                                else if ($_GET["error"] == "emailutilizado"){
+                                    echo "<div class='p-3'>";
+                                    echo "<p class='text-danger fw-bold'><i class='bi bi-x-circle'></i> Email, CPF ou CRP já cadastrados.</p>";
+                                    echo "</div>";
+                                }
+                                else if ($_GET["error"] == "none"){
+                                    echo "<div class='p-3'>";
+                                    echo "<p class='text-success fw-bold'><i class='bi bi-patch-check'></i> Cadastro concluído!</p>";
+                                    echo "</div>";
+                                }
+                            }
                     ?>
-                    <button type="submit" name="update_psicologo" value="Update"
-                        class="btn section-btn2">Atualizar</button>
+                    <button type="submit" name="update_paciente" value="Update"
+                        class="btn section-btn2 navbar-font">Atualizar</button>
                 </form>
             </div>
         </div>

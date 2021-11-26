@@ -97,11 +97,11 @@
                         }
                     ?>
                     <button type="submit" name="cadastrar_psicologo"
-                        class="btn section-btn2">Cadastrar</button>
+                        class="btn section-btn2 navbar-font">Cadastrar</button>
                     <div class="container text-center">
                         <div>
                             <p>Já possui uma conta? clique abaixo para logar!</p>
-                            <a href="login.php" class="btn section-btn2">Login</a>
+                            <a href="login.php" class="btn section-btn2 navbar-font">Login</a>
                         </div>
                     </div>
                 </form>

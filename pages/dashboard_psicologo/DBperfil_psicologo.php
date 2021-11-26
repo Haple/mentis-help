@@ -2,22 +2,6 @@
     session_start();
     include_once('../../includes/db_inc.php');
     $currentUser = $_SESSION['idpsicologo'];
-                    if(isset($_POST['update_psicologo'])){
-                        $novonome = $_POST['update_nome'];
-                        $novoemail = $_POST['update_email'];
-                        $novodesc = $_POST['update_descricao'];
-                
-                        $sql="UPDATE psicologo SET nomePsicologo = '$novonome', emailPsicologo = '$novoemail',
-                        descricaoPsicologo = '$novodesc' WHERE IDPsicologo = $currentUser";
-                        $result=mysqli_query($conn, $sql);
-                        if($result){
-                                echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
-                        }
-                        else{
-                            echo "<div class='alert alert-success' role='alert'>Não foi possível atualizar!</div>";
-                            die(mysqli_error($conn));
-                        }
-                    }
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -56,16 +40,14 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item  me-2">
-                                <a class="nav-link" href="dashboard_psicologo.php"><i class="bi bi-house"></i>
-                                    Área do
-                                    Psicólogo</a>
+                            <li class="nav-item me-2">
+                                <a class="nav-link" aria-current="page" href="dashboard_psicologo.php"><i
+                                        class="bi bi-chat-left"></i>
+                                    Consultas</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="DBcronograma.php"><i class="bi bi-calendar-event"></i> Cronograma</a>
-                            </li>
-                            <li class="nav-item me-2">
-                                <a class="nav-link" href="DBchats_psicologo.php"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link" href="DBcronograma.php"><i class="bi bi-calendar-event"></i>
+                                    Cronograma</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link active me-2" aria-current="page" href="DBperfil_psicologo.php"><i
@@ -115,14 +97,44 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
+                            <select name="update_sexo" class="form-select" id="floatingSelectGrid"
+                                aria-label="Floating label select example">
+                                <option selected value="Feminino">Feminino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                            <label for="floatingSelectGrid">Sexo<span class="text-danger">*</span></label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
                             <input type="text" class="form-control" name="update_descricao"
                                 value="<?php echo $row['descricaoPsicologo']; ?>" placeholder="deixe sua descrição"
                                 id="floatingTextarea2" style="height: 100px"></input>
                             <label for="floatingTextarea2">Descrição:</label>
                         </div>
                     </div>
+                    <?php
+                        if(isset($_POST['update_psicologo'])){
+                            $novonome = $_POST['update_nome'];
+                            $novoemail = $_POST['update_email'];
+                            $novodesc = $_POST['update_descricao'];
+                            $novosexo = $_POST['update_sexo'];
+
+                            $sql="UPDATE psicologo SET nomePsicologo = '$novonome', emailPsicologo = '$novoemail',
+                            descricaoPsicologo = '$novodesc', sexoPsicologo = '$novosexo' WHERE IDPsicologo = $currentUser";
+                            $result=mysqli_query($conn, $sql);
+                            if($result){
+                                    echo "<div class='alert alert-success' role='alert'>Perfil atualizado!</div>";
+                            }
+                            else{
+                                echo "<div class='alert alert-success' role='alert'>Não foi possível atualizar!</div>";
+                                die(mysqli_error($conn));
+                            }
+                        }
+                    ?>
                     <button type="submit" name="update_psicologo" value="Update"
-                        class="btn section-btn2">Atualizar</button>
+                        class="btn section-btn2 navbar-font">Atualizar</button>
                 </form>
             </div>
         </div>

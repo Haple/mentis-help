@@ -48,7 +48,7 @@
                                 <a class="nav-link" href="DBcronograma.php"><i class="bi bi-calendar-event"></i> Cronograma</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link active" aria-current="page"  href="DBchats_psicologo.php"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link active" aria-current="page"  href="DBchats_psicologo.php"><i class="bi bi-chat-left"></i> Consulta</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link" href="DBperfil_psicologo.php"><i class="bi bi-person"></i> Perfil</a>

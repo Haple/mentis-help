@@ -32,7 +32,7 @@
                                     <label for="floatingSelectGrid">Senha:<span class="text-danger">*</span></label>
                                 </div>
                             </div>
-                            <button type="submit" name="logar_paciente" class="btn section-btn2">Login</a>
+                            <button type="submit" name="logar_paciente" class="btn section-btn2 navbar-font">Login</a>
                         </form>
                     </div>
 
@@ -66,7 +66,7 @@
                                 }
                             ?>
                             <button type="submit" name="logar_psicologo"
-                                class="btn section-btn2">Login</button>
+                                class="btn section-btn2 navbar-font">Login</button>
                         </form>
                     </div>
                 </div>

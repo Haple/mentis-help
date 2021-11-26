@@ -40,17 +40,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item me-2">
-                                <a class="nav-link" href="dashboard_psicologo.php"><i class="bi bi-house"></i>
-                                    Área do
-                                    Psicólogo</a>
+                                <a class="nav-link" aria-current="page" href="dashboard_psicologo.php"><i
+                                        class="bi bi-chat-left"></i>
+                                    Consultas</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link active" aria-current="page" href="DBcronograma.php"><i
                                         class="bi bi-calendar-event"></i> Cronograma</a>
-                            </li>
-                            <li class="nav-item me-2">
-                                <a class="nav-link" href="DBchats_psicologo.php"><i class="bi bi-chat-left"></i>
-                                    Chats</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link" href="DBperfil_psicologo.php"><i class="bi bi-person"></i>
@@ -72,53 +68,49 @@
             <button class="btn section-btn2 fw-bold" data-bs-toggle="modal"
                 data-bs-target="#adicionar_horario">Adicionar
                 Horário +</button>
-            <button class="btn section-btn2 ms-3 fw-bold" data-bs-toggle="modal"
+            <!--<button class="btn section-btn2 ms-3 fw-bold" data-bs-toggle="modal"
                 data-bs-target="#visualizar_horario">Visualizar
-                Horários <i class="bi bi-eye"></i></button>
+                Horários <i class="bi bi-eye"></i></button>-->
         </div>
 
         <!-- HORÁRIOS -->
         <div class="time-table pt-3">
-            <table class="table table-hover text-center">
-                <thead>
-                    <tr>
-                        <th scope="col">Data</th>
-                        <th scope="col">Horário</th>
-                        <th scope="col">Paciente</th>
-                        <th scope="col">Editar</th>
-                        <th scope="col">Excluir</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><button class="btn btn-outline-primary">Editar <i class="bi bi-pencil-fill"></i></button>
-                        </td>
-                        <td><button class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><button class="btn btn-outline-primary">Editar <i class="bi bi-pencil-fill"></i></button>
-                        </td>
-                        <td><button class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><button class="btn btn-outline-primary">Editar <i class="bi bi-pencil-fill"></i></button>
-                        </td>
-                        <td><button class="btn btn-outline-danger">Excluir <i class="bi bi-eraser-fill"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="time-table">
+                <table class="table table-hover text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Horário</th>
+                            <th scope="col">Link</th>
+                            <th scope="col">Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            include_once '../../includes/db_inc.php';
+                            $currentUser = $_SESSION['idpsicologo'];
+
+                            $sql = "SELECT * FROM adicionar_horario WHERE Ref_IDPsicologo = '$currentUser' order by dia;";
+                            $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
+                            while($data = mysqli_fetch_assoc($rs)){
+                        ?>
+                        <tr>
+                            <td><?=$data["IDadd_horario"]?></td>
+                            <td><?=$data["dia"] ?></td>
+                            <td><?=$data["hora"] ?></td>
+                            <td><?=$data["link"] ?></td>
+                            <td><a name="del_horario" type="submit"
+                                    href="delete_horario.php?id_excluir=<?php echo $data['IDadd_horario'];?>"
+                                    class="btn btn-outline-danger fw-bold"> Excluir</a>
+                            </td>
+                        </tr>
+                        <?php
+                                    }
+                                ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <nav aria-label="Páginas">
@@ -172,6 +164,14 @@
                                 <label for="floatingInputGrid">Hora:<span class="text-danger">*</span></label>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <input type="text" name="link" class="form-control" id="floatingInputGrid"
+                                    placeholder="insira a hora de atendimento" required>
+                                <label for="floatingInputGrid">Link da consulta:<span
+                                        class="text-danger">*</span></label>
+                            </div>
+                        </div>
                         <div>
                             <div class="form-floating">
                                 <input type="hidden" name="id" value="<?php echo $row['IDPsicologo']; ?>"
@@ -210,42 +210,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="time-table">
-                        <table class="table table-hover text-center">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Data</th>
-                                    <th scope="col">Horário</th>
-                                    <th scope="col">Editar</th>
-                                    <th scope="col">Excluir</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    include_once '../../includes/db_inc.php';
-                                    $sql = "SELECT * FROM adicionar_horario WHERE Ref_IDPsicologo = '$currentUser';";
-                                    $rs = mysqli_query($conn, $sql) or die("Conexão falhou!" . mysqli_error($conn));
-                                    while($data = mysqli_fetch_assoc($rs)){
-                                ?>
-                                <tr>
-                                    <td class="d-none"><?=$data["IDadd_horario"]?></td>
-                                    <td><?=$data["dia"] ?></td>
-                                    <td><?=$data["hora"] ?></td>
-                                    <td>
-                                        <form method="post">
-                                            <a href="../../functions_horario_inc.php?id_del=<?php echo $row['IDadd_horario']?>"
-                                                type="submit" name="deletar_horario"
-                                                class="btn btn-outline-danger">Excluir
-                                                <i class="bi bi-eraser-fill"></i></a>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <?php
-                                    }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
+
                 </div>
             </div>
         </div>

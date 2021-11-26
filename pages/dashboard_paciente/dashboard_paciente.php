@@ -2,7 +2,7 @@
     session_start();
     include_once('../../includes/db_inc.php');
     $currentUser = $_SESSION['idpaciente'];
-                    if(isset($_POST['agendar_horario'])){
+                    if(isset($_POST['agendar_hhhorario'])){
                         $novoid = $_POST['id'];
                         $novonome = $_POST['nome'];
                 
@@ -63,7 +63,7 @@
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i>
-                                    Chats</a>
+                                    Consulta</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link" href="DBperfil_paciente.php"><i class="bi bi-person"></i> Perfil</a>
@@ -79,36 +79,38 @@
         </div>
     </div>
     <div class="container">
-        <form class="col-4 pt-4 d-flex">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
-            <button class="btn section-btn2 fw-bold">Pesquisar</button>
-        </form>
+        <h3 class="navbar-font fs-3 mt-5">Horários Disponíveis</h3>
         <div class="time-table pt-4">
             <table class="table table-hover text-center">
                 <thead class="table-light">
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Nome</th>
                         <th scope="col">Dia</th>
                         <th scope="col">Hora</th>
-                        <th scope="col">Disponibilidade</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Idade</th>
                         <th scope="col">Agendar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        $sql = "SELECT * FROM adicionar_horario WHERE disponibilidade = 'Disponível';";
+                        $sql = "select (YEAR(CURDATE()) - YEAR(nascimentoPsicologo)) - (right(CURDATE(),5) < right(nascimentoPsicologo,5)) as idade, i.nomePsicologo, i.emailPsicologo, i.sexoPsicologo, i.nascimentoPsicologo, h.dia, h.hora, h.IDadd_horario from psicologo as i JOIN adicionar_horario as h on i.IDPsicologo = h.Ref_IDPsicologo WHERE disponibilidade = 'Disponível' ORDER by dia;";
                         $rs = mysqli_query($conn, $sql);
                         while($row = mysqli_fetch_assoc($rs)){
                         ?>
                     <tr>
                         <td><?=  $row["IDadd_horario"] ?></td>
-                        <td><?=  $row["NomePsicologo"] ?></td>
                         <td><?=  $row["dia"] ?></td>
                         <td><?=  $row["hora"] ?></td>
-                        <td class="text-success fw-bolder"><?=$row["disponibilidade"] ?></td>
-                        <td><a name="upd_horario" type="submit" href="../../includes/update_horario.php?id_upd=<?php echo $row['IDadd_horario']?>"
-                                class="btn btn-primary"> Agendar</a>
+                        <td><?=  $row["nomePsicologo"] ?></td>
+                        <td><?=  $row["emailPsicologo"] ?></td>
+                        <td><?=  $row["sexoPsicologo"] ?></td>
+                        <td><?=  $row["idade"] ?></td>
+                        <td><a name="upd_horario" type="submit"
+                                href="agendar_paciente.php?id_agendar=<?php echo $row['IDadd_horario'];?>"
+                                class="btn section-btn2 fw-bold"> Agendar</a>
                         </td>
                     </tr>
                     <?php

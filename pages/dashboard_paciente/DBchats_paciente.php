@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include_once('../../includes/db_inc.php');
+    $currentUser = $_SESSION['idpaciente'];
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -45,7 +47,8 @@
                                     Paciente</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link active" aria-current="page" href="DBchats_paciente.php"><i class="bi bi-chat-left"></i> Chats</a>
+                                <a class="nav-link active" aria-current="page" href="DBchats_paciente.php"><i
+                                        class="bi bi-chat-left"></i> Consulta</a>
                             </li>
                             <li class="nav-item me-2">
                                 <a class="nav-link" href="DBperfil_paciente.php"><i class="bi bi-person"></i> Perfil</a>
@@ -58,6 +61,40 @@
                     </div>
                 </div>
             </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3 class="navbar-font fs-3 mt-5">Consultas Agendadas</h3>
+        <div class="time-table pt-4">
+            <table class="table table-hover text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Psicólogo</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Iniciar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $sql = "select * from consulta where IDPaciente_c = '$currentUser';";
+                        $rs = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($rs)){
+                        ?>
+                    <tr>
+                        <td><?=  $row["nomePsicologo_c"] ?></td>
+                        <td><?=  $row["emailPsicologo_c"] ?></td>
+                        <td><?=  $row["dia_c"] ?></td>
+                        <td><?=  $row["hora_c"] ?></td>
+                        <td><?=  $row["link_c"] ?></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
 
