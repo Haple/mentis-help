@@ -1,5 +1,5 @@
 // const socket = io('ws://127.0.0.1:3333')
-const socket = io('ws://mentis-help-socket-server.herokuapp.com/')
+const socket = io('https://mentis-help-socket-server.herokuapp.com/', { secure: true })
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
     path: '/peerjs',
