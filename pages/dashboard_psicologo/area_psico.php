@@ -43,12 +43,12 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item me-2">
-                                <a class="nav-link" aria-current="page" href="area_psico.php"><i
+                                <a class="nav-link active" aria-current="page" href="area_psico.php"><i
                                         class="bi bi-camera-video"></i>
                                     Área do Psicólogo</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="nav-link active" aria-current="page" href="dashboard_psicologo.php"><i
+                                <a class="nav-link" aria-current="page" href="dashboard_psicologo.php"><i
                                         class="bi bi-chat-left"></i>
                                     Consultas</a>
                             </li>
@@ -71,40 +71,21 @@
         </div>
     </div>
 
-    <div class="container">
-        <h3 class="navbar-font fs-3 mt-5">Consultas</h3>
-        <div class="time-table pt-4">
-            <table class="table table-hover text-center">
-                <thead class="table-light">
-                    <tr>
-                        <th scope="col">Paciente</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Dia</th>
-                        <th scope="col">Hora</th>
-                        <th scope="col">Iniciar Sessão</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        $sql = "select a.nomePaciente, a.emailPaciente, c.dia_c, c.hora_c, c.link_c from paciente as a JOIN consulta as c on IDPaciente = IDPaciente_c WHERE IDPsicologo_c = '$currentUser' ORDER by dia_c;";
-                        $rs = mysqli_query($conn, $sql);
-                        while($row = mysqli_fetch_assoc($rs)){
-                        ?>
-                    <tr>
-                        <td><?=  $row["nomePaciente"] ?></td>
-                        <td><?=  $row["emailPaciente"] ?></td>
-                        <td><?=  $row["dia_c"] ?></td>
-                        <td><?=  $row["hora_c"] ?></td>
-                        <td><a class="btn section-btn2 fw-bold" href="https://sheltered-escarpment-26956.herokuapp.com/" target="_blank">Iniciar</a></td>
-                    </tr>
-                    <?php
-                        }
-                    ?>
-                </tbody>
-            </table>
+    <section class="container text-dark text-center text-md-start pt-3 pb-5">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <div>
+                <h2>Plataforma Web de gerenciamento e auxílio da saúde mental de jovens.</h2>
+                <p class="lead my-3 subtopic-content">O objetivo geral deste projeto é poder oferecer suporte mental a
+                    jovens que estejam se sentindo abalados psicologicamente e queiram receber auxílio de profissionais
+                    da saúde, assim podendo se consultar com esses psicólogos dentro da plataforma através dos recursos
+                    de chats e chamadas de vídeo. </p>
+                <a href="#funciona" class="btn btn-lg mb-3 btn-showcase text-light" type="submit">Começar</a>
+            </div>
+            <img class="img-fluid d-none d-md-block" width="560" height="560" src="../../resources/call.png" alt="">
         </div>
+    </section>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
         </script>
 </body>

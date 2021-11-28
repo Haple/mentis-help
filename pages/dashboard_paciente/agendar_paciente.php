@@ -11,10 +11,9 @@ if(isset($_POST["agendar"])){
     $email_psi = $_POST["email_psi"];
     $dia_c = $_POST["dia_c"];
     $hora_c = $_POST["hora_c"];
-    $link_c = $_POST["link_c"];
 
     $query= "INSERT INTO consulta (IDPsicologo_c, IDPaciente_c, IDHorario, nomePsicologo_c, emailPsicologo_c,
-     dia_c, hora_c, link_c) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+     dia_c, hora_c) VALUES (?, ?, ?, ?, ?, ?, ?);";
     //$queryy= "UPDATE adicionar_horario SET disponibilidade = 'Indisponível' WHERE IDadd_horario = '$id';"
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $query)){
@@ -22,7 +21,7 @@ if(isset($_POST["agendar"])){
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ssssssss",  $id_psi, $id_pa, $id_hora, $nome_psi, $email_psi, $dia_c, $hora_c, $link_c);
+    mysqli_stmt_bind_param($stmt, "sssssss",  $id_psi, $id_pa, $id_hora, $nome_psi, $email_psi, $dia_c, $hora_c);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: dashboard_paciente.php?error=none");
@@ -66,7 +65,6 @@ if(isset($_POST["agendar"])){
                                 <th scope="col">Email</th>
                                 <th scope="col">Sexo</th>
                                 <th scope="col">Idade</th>
-                                <th scope="col">Link</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,20 +87,12 @@ if(isset($_POST["agendar"])){
                                 <td><?=  $row["emailPsicologo"] ?></td>
                                 <td><?=  $row["sexoPsicologo"] ?></td>
                                 <td><?=  $row["idade"] ?></td>
-                                <td><?=  $row["link"] ?></td>
                             </tr>
 
                         </tbody>
                     </table>
                 </div>
                 <form method="post">
-                    <div class="mb-3">
-                        <div class="form-floating">
-                            <input type="hidden" name="link_c" class="form-control" value="<?php echo $row['link']; ?>"
-                                id="floatingInputGrid" placeholder="insira seu email" required>
-                            <label for="floatingInputGrid"></label>
-                        </div>
-                    </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input type="hidden" name="dia_c" class="form-control" value="<?php echo $row['dia']; ?>"

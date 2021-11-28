@@ -44,6 +44,9 @@
                             <a class="nav-link" href="#quem">Sobre</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="https://sheltered-escarpment-26956.herokuapp.com/">Teste</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="pages/health_pages/saude_mental.php">Saúde Mental</a>
                         </li>
                     </ul>
@@ -210,6 +213,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
 </body>
 
 </html>

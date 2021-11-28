@@ -40,6 +40,11 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item me-2">
+                                <a class="nav-link" aria-current="page" href="area_psico.php"><i
+                                        class="bi bi-camera-video"></i>
+                                    Área do Psicólogo</a>
+                            </li>
+                            <li class="nav-item me-2">
                                 <a class="nav-link" aria-current="page" href="dashboard_psicologo.php"><i
                                         class="bi bi-chat-left"></i>
                                     Consultas</a>
@@ -82,7 +87,6 @@
                             <th scope="col">ID</th>
                             <th scope="col">Data</th>
                             <th scope="col">Horário</th>
-                            <th scope="col">Link</th>
                             <th scope="col">Excluir</th>
                         </tr>
                     </thead>
@@ -99,7 +103,6 @@
                             <td><?=$data["IDadd_horario"]?></td>
                             <td><?=$data["dia"] ?></td>
                             <td><?=$data["hora"] ?></td>
-                            <td><?=$data["link"] ?></td>
                             <td><a name="del_horario" type="submit"
                                     href="delete_horario.php?id_excluir=<?php echo $data['IDadd_horario'];?>"
                                     class="btn btn-outline-danger fw-bold"> Excluir</a>
@@ -164,14 +167,6 @@
                                 <label for="floatingInputGrid">Hora:<span class="text-danger">*</span></label>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <div class="form-floating">
-                                <input type="text" name="link" class="form-control" id="floatingInputGrid"
-                                    placeholder="insira a hora de atendimento" required>
-                                <label for="floatingInputGrid">Link da consulta:<span
-                                        class="text-danger">*</span></label>
-                            </div>
-                        </div>
                         <div>
                             <div class="form-floating">
                                 <input type="hidden" name="id" value="<?php echo $row['IDPsicologo']; ?>"
@@ -200,21 +195,6 @@
                         }
                     ?>
 
-    <!-- MODAL 2 -->
-    <div class="modal fade" id="visualizar_horario" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Visualizar Horários</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">

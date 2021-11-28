@@ -41,6 +41,11 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item me-2">
+                                <a class="nav-link" aria-current="page" href="area_psico.php"><i
+                                        class="bi bi-camera-video"></i>
+                                    Área do Psicólogo</a>
+                            </li>
+                            <li class="nav-item me-2">
                                 <a class="nav-link" aria-current="page" href="dashboard_psicologo.php"><i
                                         class="bi bi-chat-left"></i>
                                     Consultas</a>
