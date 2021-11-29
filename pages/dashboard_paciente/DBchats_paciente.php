@@ -73,7 +73,9 @@ $currentUser = $_SESSION['idpaciente'];
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "select * from consulta where IDPaciente_c = '" . $currentUser . "';";
+                    // $sql = "select * from consulta where IDPaciente_c = '" . $currentUser . "';";
+
+                    $sql = "select * from consulta where IDPaciente_c = '$currentUser';";
                     $rs = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($rs)) {
                     ?>
